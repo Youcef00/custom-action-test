@@ -4,20 +4,14 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Inputs
 
-### `who-to-greet`
+### `webhook`
 
-**Required** The name of the person to greet. Default `"World"`.
-
-## Outputs
-
-### `time`
-
-The time we greeted you.
+**Required** The webhook URL of the chat.
 
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
+uses: Youcef00/custom-action-test@v1.16
 with:
-  who-to-greet: 'Mona the Octocat'
+  webhook: WEBHOOK_URL
 ```

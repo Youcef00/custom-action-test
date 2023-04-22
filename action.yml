@@ -1,13 +1,9 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Pull Request Notifier'
+description: 'When a reviewer is added he gets notified in Google Chat'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  webhooks:
+    description: 'List of Webhooks URL'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
 runs:
   using: 'node16'
   main: 'dist/index.js'
