@@ -1,7 +1,7 @@
 {
-  "name": "custom-action-test",
+  "name": "pull-request-notification-action",
   "version": "1.0.0",
-  "description": "Test of Github Actions",
+  "description": "This action sends a Google Chat message to the specified space and notifies the user with the new review request and a link to the pull request",
   "main": "index.js",
   "type": "module",
   "scripts": {

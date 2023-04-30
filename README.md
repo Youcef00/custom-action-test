@@ -1,12 +1,12 @@
-# custom-action-test
+# pull-request-notification-action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action sends a Google Chat message to the specified space and notifies the user with the new review request and a link to the pull request
 
 ## Inputs
 
 ### `webhooks`
 
-**Required** A list of Google chat webhooks to the users, the format must be the following:
+**Required** A list of Google chat webhooks to the users, the format must be as the following:
 
 `git_username:webhook_URL git_username2:webhook_URL2`
 
