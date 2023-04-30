@@ -16832,12 +16832,14 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
  */
 function sendMessage() {
     const webhooks = core.getInput('webhooks').split(" ");
-    //const webhooks = "Platchoon:https://chat.googleapis.com/v1/spaces/AAAAyiWYLqc/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=IitIVzOPszBIzqH9cJ6wAm8RfLNl8y-RfzeUKuHXGTY%3D Test-GitBot:https://chat.googleapis.com/v1/spaces/AAAAGujQbgg/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=UtAVIyaXE3Q6oKLkG8SFg9sCN2ZUj2KyBwCEv-4CK50%3D".split(" ")
     const webhookURL = webhooks.find(webhook => {
         const user = webhook.split(/:(.*)/s)[0];
         return user === github.context.payload.requested_reviewer.login;
     }).split(/:(.*)/s)[1];
-    console.log(webhooks);
+    if (webhookURL === undefined) {
+        console.log("Please check the URL and the username are well indicated");
+        return;
+    }
     try {
         let data = {
             "cards": [
@@ -16850,7 +16852,7 @@ function sendMessage() {
                             "widgets": [
                                 {
                                     "textParagraph": {
-                                        "text": `Hey, <b><font color="#D14F0A">${github.context.payload.requested_reviewer.login}</font></b> You have 1 new review requested!<br>
+                                        "text": `Hey, <b><font color="#D14F0A">${github.context.payload.requested_reviewer.login}</font></b> You have a new review requested!<br>
                                 <a href=${github.context.payload.pull_request.html_url}>Link To Pull Request</a>`
                                     }
                                 }
